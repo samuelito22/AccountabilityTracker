@@ -1,6 +1,8 @@
 'use client';
 
 import {useState} from 'react';
+import NavLinks from './NavLinks';
+import UserMenu from './UserMenu';
 
 function Header() {
 
@@ -12,21 +14,18 @@ function Header() {
 
     return(
         <header className="font-plex font-semibold p-4 md:p-6 flex justify-between items-center">
-            
         {/* Mobile View */}
+
+        
 
 
 
         {/* Desktop View */}
 
         <div className="hidden md:flex w-full justify-between">
-            navbar
+            <NavLinks/>
+            <UserMenu/>
         </div>
-
-
-
-
-
 
         </header>
     );

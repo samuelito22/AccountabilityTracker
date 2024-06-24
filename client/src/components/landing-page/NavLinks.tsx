@@ -1,0 +1,37 @@
+import Link from "next/link";
+import { useState } from "react";
+
+
+function NavLinks() {
+
+
+    const [isResourcesVisible, setResourcesVisible] = useState(false);
+
+    const toggleResourcesVisible = () => {
+        setResourcesVisible(!isResourcesVisible)
+    }
+
+    return(
+        <nav>
+            <ul className="flex flex-col md:flex-row md:space-x-4 ">
+                <li onClick={toggleResourcesVisible} className="relative flex">
+                    <span>Resources</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+  <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+</svg>
+
+                    {isResourcesVisible && (
+                        <ul className="absolute bg-white shadow-lg w-full p-2  space-y-2 rounded-md top-full">
+                            <li className=" hover:bg-gray-100 cursor-pointer">Startup</li>
+                            <li className=" hover:bg-gray-100 cursor-pointer">Career</li>
+                        </ul>
+                    )}
+                </li>
+                <li> <Link href="/">Leaderboard</Link></li>
+                <li> <Link href="/">Tools</Link></li>
+            </ul>
+        </nav>
+    );
+}
+
+export default NavLinks;
