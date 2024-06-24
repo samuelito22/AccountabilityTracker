@@ -5,7 +5,7 @@ function UserMenu() {
 
     return(
         <div>
-            <ul className=""><Link href="/">Log in</Link></ul>
+            <ul className=""><Link href="/login">Log in</Link></ul>
         </div>
 
     );

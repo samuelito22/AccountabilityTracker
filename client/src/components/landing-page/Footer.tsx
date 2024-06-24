@@ -2,8 +2,10 @@
 
 function Footer(){
     return(
-        <footer>
-            I am the footer!
+        <footer className="flex items-center justify-center">
+            <div>
+                Probs best made with grid
+            </div>
         </footer>
     );
 }
