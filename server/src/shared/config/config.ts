@@ -8,7 +8,7 @@ const envVarsSchema = Joi.object({
     NODE_ENV: Joi.string().valid('development', 'production', 'test').required(),
     MAIN_DATABASE_URL: Joi.string().uri().required(),
     SUPABASE_ISSUER: Joi.string().uri().required(),
-    SUPABASE_SECRET_KEY: Joi.string().required()
+    SUPABASE_JWT_SECRET: Joi.string().required()
 }).unknown(true);  // Allows for other non-specified env variables
 
 // Validate the environment variables
@@ -29,7 +29,7 @@ export const config = {
     },
     supabase: {
         issuer: validatedEnvVars.SUPABASE_ISSUER,
-        secretJwt: validatedEnvVars.SUPABASE_SECRET_KEY
+        jwtSecret: validatedEnvVars.SUPABASE_JWT_SECRET
     }
 };
 
