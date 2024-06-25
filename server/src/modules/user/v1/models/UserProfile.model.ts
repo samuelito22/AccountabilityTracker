@@ -1,23 +1,16 @@
 import { Table, Column, Model, DataType, PrimaryKey, CreatedAt, UpdatedAt, ForeignKey, BelongsTo, Index } from 'sequelize-typescript';
 import { Optional } from 'sequelize';
 import { User } from './User.model';
+import { IUserProfile } from '../types';
 
-interface UserProfileAttributes {
-    id: string;
-    userId: string;
-    username: string;
-    createdAt?: Date;
-    updatedAt?: Date;
-}
-
-type UserProfileCreationAttributes = Optional<UserProfileAttributes, 'createdAt' | 'updatedAt' | 'id'>;
+type UserProfileCreationAttributes = Optional<IUserProfile, 'createdAt' | 'updatedAt' | 'id'>;
 
 @Table({
     tableName: "user_profiles",
     timestamps: true,
     underscored: true
 })
-export class UserProfile extends Model<UserProfileAttributes, UserProfileCreationAttributes> {
+export class UserProfile extends Model<IUserProfile, UserProfileCreationAttributes> {
     @PrimaryKey
     @Column({
         type: DataType.UUID,

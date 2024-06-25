@@ -1,3 +1,12 @@
+import {register} from "tsconfig-paths"
+import tsConfig from "./tsconfig.json"
+
+const baseUrl = "./"; 
+const cleanup = register({
+  baseUrl,
+  paths: tsConfig.compilerOptions.paths,
+});
+
 import app from './src/app';
 import { config } from './src/shared/config';
 import sequelize from './src/shared/db/sequelize.config';
@@ -47,4 +56,6 @@ process.on('SIGTERM', () => {
   if (server) {
     server.close();
   }
+
+  cleanup();
 });

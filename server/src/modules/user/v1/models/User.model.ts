@@ -2,17 +2,9 @@ import { Column, CreatedAt, DataType, HasMany, HasOne, Model, Table, UpdatedAt }
 import { UserProfile } from "./UserProfile.model";
 import { Feedback } from "./Feedback.model";
 import { Optional } from "sequelize";
+import { IUser } from "../types";
 
-interface UserAttributes {
-    id: string;
-    email: string;
-    phoneNumber: string;
-    createdAt?: Date;
-    updatedAt?: Date;
-    stripe_customer_id?: string;
-}
-
-type UserCreationAttributes = Optional<UserAttributes, 'createdAt' | 'updatedAt'>;
+type UserCreationAttributes = Optional<IUser, 'createdAt' | 'updatedAt'>;
 
 
 @Table({
@@ -21,7 +13,7 @@ type UserCreationAttributes = Optional<UserAttributes, 'createdAt' | 'updatedAt'
     modelName: "User",
     underscored: true
 })
-export class User extends Model<UserAttributes, UserCreationAttributes> {
+export class User extends Model<IUser, UserCreationAttributes> {
     @Column({
         primaryKey: true,
         type: DataType.UUID,

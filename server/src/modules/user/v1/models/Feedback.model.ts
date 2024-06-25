@@ -1,15 +1,9 @@
 import { BelongsTo, Column, CreatedAt, DataType, ForeignKey, Model, PrimaryKey, Table } from "sequelize-typescript";
 import { User } from "./User.model";
 import { Optional } from "sequelize";
+import { IFeedback } from "../types";
 
-interface FeedbackAttributes {
-    id: string;
-    userId: string;
-    content: string;
-    createdAt?: Date;
-}
-
-type FeedbackCreationAttributes = Optional<FeedbackAttributes, 'createdAt' | 'id'>;
+type FeedbackCreationAttributes = Optional<IFeedback, 'createdAt' | 'id'>;
 
 @Table({
     underscored: true,
@@ -17,7 +11,7 @@ type FeedbackCreationAttributes = Optional<FeedbackAttributes, 'createdAt' | 'id
     tableName: 'feedbacks',
     modelName: 'Feedback'
 })
-export class Feedback extends Model<FeedbackAttributes, FeedbackCreationAttributes> {
+export class Feedback extends Model<IFeedback, FeedbackCreationAttributes> {
     @PrimaryKey
     @Column({
         type: DataType.UUID,

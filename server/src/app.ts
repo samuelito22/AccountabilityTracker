@@ -2,6 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import morgan from 'morgan';
 import { config } from './shared/config';
+import UserRoutesV1 from "./modules/user/v1/routes"
 
 const app = express();
 
@@ -23,7 +24,7 @@ if (config.env === 'development') {
 
 const v1 = express.Router();
 
-//v1.use("/users", UserRoutesV1)
+v1.use("/users", UserRoutesV1)
 
 app.use('/api/v1', v1);
 
