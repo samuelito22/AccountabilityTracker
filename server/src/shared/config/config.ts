@@ -7,6 +7,8 @@ const envVarsSchema = Joi.object({
     PORT: Joi.number().required(),
     NODE_ENV: Joi.string().valid('development', 'production', 'test').required(),
     MAIN_DATABASE_URL: Joi.string().uri().required(),
+    SUPABASE_ISSUER: Joi.string().uri().required(),
+    SUPABASE_SECRET_KEY: Joi.string().required()
 }).unknown(true);  // Allows for other non-specified env variables
 
 // Validate the environment variables
@@ -25,5 +27,9 @@ export const config = {
     database: {
         mainDatabaseUrl: validatedEnvVars.MAIN_DATABASE_URL,
     },
+    supabase: {
+        issuer: validatedEnvVars.SUPABASE_ISSUER,
+        secretJwt: validatedEnvVars.SUPABASE_SECRET_KEY
+    }
 };
 
