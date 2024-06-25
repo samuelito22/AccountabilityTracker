@@ -1,1 +1,1 @@
-export * from "./models.type"
+export * from './models.type'
