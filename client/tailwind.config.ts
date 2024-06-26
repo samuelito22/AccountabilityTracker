@@ -15,6 +15,7 @@ const config: Config = {
       },
       colors: {
         customGray: '#D9D9D9',
+        darkerGray: '#cecece',
       }
     },
     fontFamily: {
