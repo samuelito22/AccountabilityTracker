@@ -1,11 +1,9 @@
+import { JSX } from "react";
 
-
-function Footer(){
-    return(
+function Footer(): JSX.Element {
+    return (
         <footer className="flex items-center justify-center">
-            <div>
-                Probs best made with grid
-            </div>
+            <div>Probs best made with grid</div>
         </footer>
     );
 }
