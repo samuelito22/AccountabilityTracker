@@ -1,4 +1,3 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {};
+const withPlugins = require("next-compose-plugins");
 
-export default nextConfig;
+module.exports = withPlugins([], {});

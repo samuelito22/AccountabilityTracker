@@ -1,32 +1,26 @@
-'use client';
+"use client";
 
-import {useState} from 'react';
-import NavLinks from './NavLinks';
-import UserMenu from './UserMenu';
+import { useState, JSX } from "react";
+import NavLinks from "./NavLinks";
+import UserMenu from "./UserMenu";
 
-function Header() {
-
+function Header(): JSX.Element {
     const [menuOpen, setMenuOpen] = useState(false);
 
     const toggleMenu = () => {
-        setMenuOpen(!menuOpen)
-    }
+        setMenuOpen(!menuOpen);
+    };
 
-    return(
+    return (
         <header className="font-plex font-semibold p-4 md:p-6 flex justify-between items-center">
-        {/* Mobile View */}
+            {/* Mobile View */}
 
-        
+            {/* Desktop View */}
 
-
-
-        {/* Desktop View */}
-
-        <div className="hidden md:flex w-full justify-between">
-            <NavLinks/>
-            <UserMenu/>
-        </div>
-
+            <div className="hidden md:flex w-full justify-between">
+                <NavLinks />
+                <UserMenu />
+            </div>
         </header>
     );
 }
