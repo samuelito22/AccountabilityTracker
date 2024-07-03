@@ -28,7 +28,7 @@ function NewSignInBox(): JSX.Element {
         } 
         console.log('User successful', data);
     
-        router.push('home')
+        router.push('confirmemail')
 
     } 
 

@@ -31,10 +31,10 @@ function NavLinks(): JSX.Element {
                     {isResourcesVisible && (
                         <ul className="absolute bg-white shadow-lg w-full p-2  space-y-2 rounded-md top-full">
                             <li className=" hover:bg-gray-100 cursor-pointer">
-                                Startup
+                            <Link href="/startup">Startup</Link>
                             </li>
                             <li className=" hover:bg-gray-100 cursor-pointer">
-                                Career
+                                <Link href="/career">Career</Link>
                             </li>
                         </ul>
                     )}

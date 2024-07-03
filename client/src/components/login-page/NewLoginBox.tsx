@@ -12,6 +12,7 @@ function NewLoginBox(): JSX.Element {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [error, setError] = useState("");
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -23,6 +24,7 @@ function NewLoginBox(): JSX.Element {
 
             if (error) {
                 console.error('Error signing up:', error.message);
+                setError(error.message);
                 return;
               } 
               console.log('User successful', data);
@@ -54,8 +56,11 @@ function NewLoginBox(): JSX.Element {
                         type="password"
                     />
                     <div className="text-black text-sm mt-4 mb-4">
-                        <p className="text-right">Forgot password</p>
                         <div className="w-full ">
+                        <p className="text-right">Forgot password</p>
+
+                        {error && <div className="text-red-500">{error}</div>}
+
                             <Button type="submit" className="w-full mb-2 mt-2">
                                 {" "}
                                 Log in
@@ -74,6 +79,7 @@ function NewLoginBox(): JSX.Element {
                                 </Link>
                             </div>
                         </div>
+
                     </div>
                 </form>
             </div>
