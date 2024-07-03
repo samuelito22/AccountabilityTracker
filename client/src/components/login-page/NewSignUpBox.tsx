@@ -13,14 +13,23 @@ function NewSignInBox() {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [username, setUsername] = useState('');
 
-    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    const signUpNewUser = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        const { error } = await supabase.auth.signUp({ email, password });
-        router.push("dashboard")
+        const { data, error } = await supabase.auth.signUp({
+          email: email,
+          password: password,
+        });
+    
+        if (error) {
+          console.error('Error signing up:', error.message);
+          return;
+        } 
+        console.log('User successful', data);
+    
+        router.push('home')
 
-    }
+    } 
 
     return(
         <div className="flex justify-center items-center min-h-screen flex-col">
@@ -30,11 +39,9 @@ function NewSignInBox() {
                 <h2 className="text-gray-500">Welcome, Builder. Please enter your details to sign up</h2>
             </div>
             <div className="font-plex text-gray-500  w-1/4">
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={signUpNewUser}>
                 <p>Email</p>
                 <Input onChange={(e) => setEmail(e.target.value)} type="email" />
-                <p>Username</p>
-                <Input onChange={(e) => setUsername(e.target.value)} type="text" />
                 <p>Password</p>
                 <Input onChange={(e) => setPassword(e.target.value)} type="password"/>
                 <div className="text-black text-sm mt-4 mb-4">
