@@ -14,14 +14,20 @@ function NewLoginBox(): JSX.Element {
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        /*
-        const { error } = await supabase.auth.signInWithPassword({
-            email,
-            password,
-        });
-        */
-        router.push("dashboard");
-    };
+
+        let { data, error } = await supabase.auth.signInWithPassword({
+            email: email,
+            password: password
+            });
+
+            if (error) {
+                console.error('Error signing up:', error.message);
+                return;
+              } 
+              console.log('User successful', data);
+        router.push('home')
+    }
+
 
     return (
         <div className="flex justify-center items-center min-h-screen flex-col">
