@@ -5,6 +5,7 @@ import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { useState, JSX } from "react";
 import { useRouter } from "next/navigation";
+import { supabase } from "@lib/supabase";
 
 function NewLoginBox(): JSX.Element {
     const router = useRouter();

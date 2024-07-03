@@ -5,6 +5,8 @@ import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { useState, JSX } from "react";
 import { useRouter } from "next/navigation";
+import { supabase } from "@lib/supabase";
+
 
 function NewSignInBox(): JSX.Element {
     const router = useRouter();
@@ -55,7 +57,7 @@ function NewSignInBox(): JSX.Element {
                         <div className="flex flex-row m-5 text-center">
                         <p className="mr-2 text-gray-500"> Already have an account?</p>
                         <Link className="text-right" href="/login">Log in</Link>
-
+                        </div>
                         </div>
                     </div>
                 </form>
