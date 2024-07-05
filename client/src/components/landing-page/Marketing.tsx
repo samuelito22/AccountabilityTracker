@@ -6,12 +6,14 @@ function Marketing(): JSX.Element {
         <>
             <section className="mb-20 ml-20">
                 <div className="flex">
-                    <p>This is the text here this is the text here </p>
+                    <p>Accountability. Keep yourself accountable by being public.</p>
                     <Image 
+                    className="rounded-mg"
                             src="/images/Elon.png" 
                             alt="Description of image" 
                             width={500} 
                             height={300}/> 
+                            
                 </div>
             </section>
 

@@ -9,8 +9,6 @@ export default function Home(): JSX.Element {
         <>
             <Header />
             <Hero />
-            <Marketing />
-            <Footer />
         </>
     );
 }
